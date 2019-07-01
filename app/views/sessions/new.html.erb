@@ -1,0 +1,28 @@
+<div class="page-header">
+  <p ="notice"><%= flash[:notice] %></p>
+  <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ユーザー登録</h1>
+</div> 
+
+ <% if @current_user %>
+    現在ログイン中です。ログアウトはこちら。
+ <% else %>   
+  <%= form_tag login_path do %>
+   
+ <% end %>   
+
+  <div class:"filed form-group">
+      <%= label_tag :ユーザー名 %><br>      
+      <%= text_field_tag :name, params[:name], class:"form-control" %>
+  </div>
+
+  <div class:"field form-group">
+      <%= label_tag :パスワード %><br>      
+      <%= text_field_tag :password_digest, params[:password_digest], class:"form-control" %>
+  </div>
+  
+  
+  <div class="actions">
+      <%= submit_tag 'ログイン',class: "btn btn-default",role: "button" %>
+      <%=link_to 'トップに戻る', users_path,class: "btn btn-defaul" %>
+  <% end %>    
+  

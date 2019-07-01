@@ -1,0 +1,23 @@
+<div class="page-header">
+<h1><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>ユーザー情報の変更</h1>
+</div>
+<%= form_for(@user,html: {role:"form"}) do |f| %>
+
+
+  <div class=:"form-group">
+      <%= f.label :ユーザー名 %><br>      
+      <%= f.text_field :name,class:"form-control" %>
+  </div>
+
+  <div class:"form-group">
+      <%= f.label :パスワード %><br>      
+      <%= f.text_field :password_digest,class:"form-control" %>
+  </div>
+  
+  <div class:"form-group">
+     <%= f.submit '登録', class: "btn btn-default",role: "button" %>
+     <%= link_to '編集せずに戻る', users_path(id:@user.id), target: "_brank", class: "btn btn-default",role: "button" %>
+     <%= link_to '削除', user_path, method: :delete, data: { confirm: 'Really?'}, class: "btn btn-danger",role: "button"%> 
+ </div>
+  
+  <% end %>

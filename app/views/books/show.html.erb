@@ -1,0 +1,10 @@
+<div class="page-header">
+<h1><span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= @book.name %></h1>
+</div>
+<p><span class="label label-default">ID</span> : <%= @book_NO %></p>
+<p><span class="label label-info">読んだ日</span> : <%= @book.date %></p>
+<p><span class="label label-success">評価</span> : <%= @book.star %><p>
+<p><span class="label label-danger">感想</span> : <%= @book.impression %></p>
+
+    <%=link_to 'トップに戻る', books_path, target: "_brank", class: "btn btn-default", role: "button"%>
+    <%= link_to '内容を変更する', edit_book_path, target: "_brank", class: "btn btn-default", role: "button" %>

@@ -1,0 +1,23 @@
+<p id="notice"><%= flash[:notice] %></p>
+<h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> すべてのユーザー</h1>
+<p>MYブックに登録しているユーザーの一覧です。</p>
+     <%=link_to '新しいユーザーを登録する', new_user_path %>
+<div class='row row-height'>
+  <% for b in @users %>
+     <% @user_NO = @user_NO +1%>
+   <div class="col-md-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">      
+     <h4> NO.<%=@user_NO %>:<%=b.name %></h4>
+      </div>
+      <div class="panel-body">
+     <p>登録日<%=b.created_at %></p>
+     <p>最終更新日<%=b.updated_at %></p>
+      </div>
+      <div class="panel-footer">
+     <%=link_to '詳しく見る', user_path(id:b.id,user_NO: @user_NO), target: "_brank" %>
+    </div>
+    </div> 
+    </div>
+  <% end %>
+</div>     
